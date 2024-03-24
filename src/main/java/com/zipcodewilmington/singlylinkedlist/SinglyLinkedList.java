@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList<T> implements Iterable {
+public class SinglyLinkedList<T> {
 
 
 
@@ -145,7 +145,7 @@ public class SinglyLinkedList<T> implements Iterable {
 
 
 
-    public SinglyLinkedList<T> copy() {
+    public SinglyLinkedList<T> deepCopy() {
         SinglyLinkedList<T> newList = new SinglyLinkedList();
         Node current = first;
 
@@ -157,13 +157,10 @@ public class SinglyLinkedList<T> implements Iterable {
     }
 
     public SinglyLinkedList<T> sort(){
-        
-        return null;
+
+
+        return this;
     }
 
 
-        @Override
-    public Iterator iterator() {
-        return null;
-    }
 }

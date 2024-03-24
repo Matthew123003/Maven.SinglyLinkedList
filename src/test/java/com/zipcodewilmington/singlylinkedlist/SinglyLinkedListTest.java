@@ -88,7 +88,7 @@ public class SinglyLinkedListTest {
         }
 
         @Test
-        public void linkedListCopyTest(){
+        public void linkedListDeepCopyTest(){
             SinglyLinkedList list1 = new SinglyLinkedList();
 
             list1.add(1);
@@ -96,14 +96,29 @@ public class SinglyLinkedListTest {
             list1.add(3);
 
             int expectedSizeOfOriginal = 3;
-            int actualSizeOfCopy = list1.copy().size();
+            int actualSizeOfCopy = list1.deepCopy().size();
 
             Assert.assertEquals(expectedSizeOfOriginal, actualSizeOfCopy);
+
+//           SinglyLinkedList list2 = new SinglyLinkedList();
+//
+//           list2.add(4);
+//
+//           Assert.assertFalse(list1.contains(4));
         }
 
         @Test
-        public void testListSOrtTest(){
+        public void testListSortTest(){
+            SinglyLinkedList list1 = new SinglyLinkedList();
 
+            list1.add(3);
+            list1.add(2);
+            list1.add(1);
+
+            int expectedIndex = 1;
+            int actualIndex = (int) list1.get(0);
+
+            Assert.assertEquals(expectedIndex, actualIndex);
         }
 
     }
