@@ -89,6 +89,20 @@ public class SinglyLinkedListTest {
 
         @Test
         public void linkedListCopyTest(){
+            SinglyLinkedList list1 = new SinglyLinkedList();
+
+            list1.add(1);
+            list1.add(2);
+            list1.add(3);
+
+            int expectedSizeOfOriginal = 3;
+            int actualSizeOfCopy = list1.copy().size();
+
+            Assert.assertEquals(expectedSizeOfOriginal, actualSizeOfCopy);
+        }
+
+        @Test
+        public void testListSOrtTest(){
 
         }
 
