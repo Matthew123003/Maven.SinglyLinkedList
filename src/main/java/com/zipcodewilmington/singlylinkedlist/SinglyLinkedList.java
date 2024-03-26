@@ -8,7 +8,6 @@ import java.util.Iterator;
 public class SinglyLinkedList<T> {
 
 
-
     public class Node {
         T data;
         Node next;
@@ -39,13 +38,14 @@ public class SinglyLinkedList<T> {
     }
 
     public void add(T item) {
-        if (item == null) {throw new NullPointerException();}
+        if (item == null) {
+            throw new NullPointerException();
+        }
         if (!isEmpty()) {
             Node previous = last;
             last = new Node(item, null);
             previous.next = last;
-        }
-        else {
+        } else {
             last = new Node(item, null);
             first = last;
         }
@@ -132,35 +132,59 @@ public class SinglyLinkedList<T> {
     public T get(int index) {
         T result = null;
         Node current = first;
-        for(int i = 0; i <= N; i++){
+        for (int i = 0; i <= N; i++) {
             if (i == index) {
                 result = current.data;
             } else {
                 current = current.next;
 
-            };
+            }
+            ;
         }
         return result;
     }
-
 
 
     public SinglyLinkedList<T> deepCopy() {
         SinglyLinkedList<T> newList = new SinglyLinkedList();
         Node current = first;
 
-        while(current != null){
+        while (current != null) {
             newList.add(current.data);
             current = current.next;
         }
         return newList;
     }
 
-    public SinglyLinkedList<T> sort(){
+    public void bubbleSort() {
+        // Node current will point to head
+        Node current = first;
+        Node index;
 
+        T temp;
 
-        return this;
+        if (first == null) {
+            throw new IllegalStateException("List is empty. Nothing to sort.");
+        } else {
+            while (current != null) {
+                // Node index will point to node next to
+                // current
+                index = current.next;
+
+                while (index != null) {
+                    // If current node's data is greater
+                    // than index's node data, swap the data
+                    // between them
+                    if ((int) current.data > (int) index.data) {
+                        temp = (T) current.data;
+                        current.data = (T) index.data;
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+
+            }
+        }
     }
-
-
 }
